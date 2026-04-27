@@ -1305,6 +1305,7 @@ input[type="range"]::-moz-range-thumb {
   height: 3px;
   background: linear-gradient(90deg, var(--accent) 0%, #fbbf24 50%, var(--accent) 100%);
 }
+.consent-banner[hidden] { display: none !important; }
 .consent-banner.show {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -1402,9 +1403,14 @@ input[type="range"]::-moz-range-thumb {
   justify-content: center;
   padding: 20px;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
-.consent-modal.show { opacity: 1; }
+.consent-modal[hidden] { display: none !important; }
+.consent-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
 .consent-modal-backdrop {
   position: absolute;
   inset: 0;
