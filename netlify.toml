@@ -28,4 +28,11 @@
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
 
+# OG-Image: kein Cache-Bust nötig, bleibt stabil
+[[headers]]
+  for = "/og-image.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# 404-Seite: Netlify nutzt /404.html automatisch
 # Netlify Forms ist automatisch aktiviert via data-netlify="true" in den Formularen
