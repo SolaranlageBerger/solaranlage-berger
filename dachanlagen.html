@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dachanlagen — Photovoltaik vom Profi | Solaranlage Berger</title>
+  <meta name="description" content="Dachanlagen von Solaranlage Berger: Individuell geplant, professionell installiert. Premium-Module von Trina Solar & JA Solar. 25 Jahre Garantie. Jetzt Angebot anfragen!">
+  <meta name="keywords" content="Dachanlage Photovoltaik, PV-Anlage Dach, Solaranlage Einfamilienhaus, Dachmontage Solar, Photovoltaik Installation Hanau">
+  <link rel="canonical" href="https://www.solaranlage-berger.de/dachanlagen.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dachanlagen — Photovoltaik vom Profi | Solaranlage Berger">
+  <meta property="og:description" content="Individuell geplant, professionell installiert, komplett betreut. Ihre Dachanlage vom regionalen Meisterbetrieb.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.solaranlage-berger.de/dachanlagen.html">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Solaranlage Berger">
+
+  <!-- Fonts -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* === DACHANLAGEN HERO === */
+    .dach-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #0d1420 100%);
+      overflow: hidden;
+      padding: 100px 0 60px;
+    }
+    .dach-hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .dach-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .dach-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .dach-hero h1 span {
+      background: linear-gradient(135deg, var(--accent), #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .dach-hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .dach-hero .btn-primary {
+      font-size: 1.1rem;
+      padding: 16px 36px;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .scroll-indicator svg {
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(8px); opacity: 1; }
+    }
+
+    /* === FEATURE CARDS === */
+    .dach-features {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .dach-features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .dach-feature-card {
+      padding: 36px 28px;
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-100);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .dach-feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--accent);
+    }
+    .dach-feature-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .dach-feature-icon svg { color: var(--white); }
+    .dach-feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .dach-feature-card p {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .dach-features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .dach-features-grid { grid-template-columns: 1fr; }
+    }
+
+    /* === TIMELINE === */
+    .dach-timeline {
+      background: var(--gray-50);
+      padding: 100px 0;
+    }
+    .timeline-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 32px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gray-200);
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 80px;
+      padding-bottom: 48px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: 18px;
+      top: 4px;
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--white);
+      box-shadow: 0 0 0 6px var(--gray-50), 0 0 0 8px var(--accent);
+      z-index: 1;
+    }
+    .timeline-item h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .timeline-item p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .timeline-line { left: 22px; }
+      .timeline-dot { left: 8px; width: 28px; height: 28px; font-size: 0.8rem; box-shadow: 0 0 0 5px var(--gray-50), 0 0 0 7px var(--accent); }
+      .timeline-item { padding-left: 60px; }
+    }
+
+    /* === TECH SPECS === */
+    .dach-specs {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .spec-card {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .spec-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    .spec-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(245,158,11,0.15);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .spec-icon svg { color: var(--accent); }
+    .spec-card .spec-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .spec-card .spec-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .spec-card .spec-detail {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .specs-grid { grid-template-columns: 1fr; }
+    }
+
+    /* === CTA SECTION === */
+    .dach-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .dach-cta::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .dach-cta::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -60px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .dach-cta h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .dach-cta p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 550px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    .dach-cta .btn-primary {
+      position: relative;
+      z-index: 1;
+      font-size: 1.1rem;
+      padding: 16px 36px;
+    }
+
+    /* === NAV OVERRIDE FOR SUBPAGE === */
+    .header .nav-links a[href^="index.html"] {
+      color: var(--gray-600);
+    }
+    .header .nav-links a[href^="index.html"]:hover {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Solaranlage Berger — Startseite">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="8" fill="#f59e0b"/>
+          <line x1="16" y1="2" x2="16" y2="7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="16" y1="25" x2="16" y2="30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="2" y1="16" x2="7" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="25" y1="16" x2="30" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="6.1" y1="6.1" x2="9.6" y2="9.6" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="22.4" y1="22.4" x2="25.9" y2="25.9" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="6.1" y1="25.9" x2="9.6" y2="22.4" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="22.4" y1="9.6" x2="25.9" y2="6.1" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        Solaranlage Berger
+      </a>
+
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav-links" id="navLinks" role="menubar">
+          <li role="none"><a href="index.html#leistungen" role="menuitem">Leistungen</a></li>
+          <li role="none"><a href="index.html#preise" role="menuitem">Preise</a></li>
+          <li role="none"><a href="index.html#rechner" role="menuitem">Solar-Rechner</a></li>
+          <li role="none"><a href="index.html#referenzen" role="menuitem">Referenzen</a></li>
+          <li role="none"><a href="index.html#ueber-uns" role="menuitem">Über uns</a></li>
+          <li role="none"><a href="index.html#kontakt" role="menuitem">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <a href="index.html#kontakt" class="nav-cta">Kostenlos beraten lassen</a>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="dach-hero" aria-labelledby="dach-hero-heading">
+      <canvas id="dachHeroCanvas" class="dach-hero-canvas" aria-hidden="true"></canvas>
+      <div class="dach-hero-content fade-up">
+        <h1 id="dach-hero-heading"><span>Dachanlagen</span> — Ihre Photovoltaikanlage vom Profi</h1>
+        <p class="dach-hero-sub">Individuell geplant, professionell installiert, komplett betreut — von der ersten Beratung bis zur Inbetriebnahme.</p>
+        <a href="index.html#kontakt" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Jetzt Angebot anfragen
+        </a>
+      </div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Mehr erfahren</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="dach-features" aria-labelledby="dach-features-heading">
+      <div class="container">
+        <div class="section-header center fade-up">
+          <p class="section-label">Unser Angebot</p>
+          <h2 id="dach-features-heading" class="section-title">Unsere Dachanlagen im Detail</h2>
+        </div>
+        <div class="dach-features-grid">
+          <div class="dach-feature-card fade-up">
+            <div class="dach-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3>Individuelle Planung</h3>
+            <p>Drohnenaufnahme Ihres Daches, professionelle Dachanalyse und detaillierte Ertragsberechnung — massgeschneidert auf Ihre Situation.</p>
+          </div>
+          <div class="dach-feature-card fade-up">
+            <div class="dach-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Premium-Module</h3>
+            <p>Hochleistungsmodule von Trina Solar und JA Solar mit 450-475W Leistung und 25 Jahren Herstellergarantie.</p>
+          </div>
+          <div class="dach-feature-card fade-up">
+            <div class="dach-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Professionelle Montage</h3>
+            <p>Eigenes, erfahrenes Montageteam. Ihre Anlage steht in nur 1-2 Tagen — fachgerecht und sauber installiert.</p>
+          </div>
+          <div class="dach-feature-card fade-up">
+            <div class="dach-feature-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Komplettservice</h3>
+            <p>Von der Netzanmeldung über die Inbetriebnahme bis zur Monitoring-Einrichtung — wir kümmern uns um alles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section class="dach-timeline" aria-labelledby="dach-timeline-heading">
+      <div class="container">
+        <div class="section-header center fade-up">
+          <p class="section-label">Ihr Weg zur Solaranlage</p>
+          <h2 id="dach-timeline-heading" class="section-title">Ablauf Ihrer Dachanlage</h2>
+        </div>
+        <div class="timeline-wrapper">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <div class="timeline-item fade-up">
+            <div class="timeline-dot" aria-hidden="true">1</div>
+            <h3>Erstberatung & Dachanalyse</h3>
+            <p>Wir kommen zu Ihnen, analysieren Ihr Dach per Drohne und besprechen Ihre Wünsche und Möglichkeiten. Kostenlos und unverbindlich.</p>
+          </div>
+
+          <div class="timeline-item fade-up">
+            <div class="timeline-dot" aria-hidden="true">2</div>
+            <h3>Individuelle Planung & Angebot</h3>
+            <p>Auf Basis der Dachanalyse erstellen wir eine massgeschneiderte Planung mit Ertragsberechnung und einem transparenten Festpreisangebot.</p>
+          </div>
+
+          <div class="timeline-item fade-up">
+            <div class="timeline-dot" aria-hidden="true">3</div>
+            <h3>Montage & Elektroinstallation</h3>
+            <p>Unser eigenes Montageteam installiert Ihre Anlage in 1-2 Tagen. Sauber, fachgerecht und mit minimalem Aufwand für Sie.</p>
+          </div>
+
+          <div class="timeline-item fade-up">
+            <div class="timeline-dot" aria-hidden="true">4</div>
+            <h3>Netzanmeldung & Inbetriebnahme</h3>
+            <p>Wir übernehmen die komplette Netzanmeldung, nehmen die Anlage in Betrieb und richten das Monitoring ein. Sie lehnen sich zurück.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TECH SPECS ===== -->
+    <section class="dach-specs" aria-labelledby="dach-specs-heading">
+      <div class="container">
+        <div class="section-header center fade-up">
+          <p class="section-label">Technik & Qualität</p>
+          <h2 id="dach-specs-heading" class="section-title">Technische Daten</h2>
+        </div>
+        <div class="specs-grid">
+          <div class="spec-card fade-up">
+            <div class="spec-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="spec-value">450-475 Wp</div>
+            <div class="spec-label">Modulleistung</div>
+            <div class="spec-detail">Hochleistungsmodule von Trina Solar & JA Solar</div>
+          </div>
+          <div class="spec-card fade-up">
+            <div class="spec-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            </div>
+            <div class="spec-value">SMA, Fronius</div>
+            <div class="spec-label">Wechselrichter</div>
+            <div class="spec-detail">Premium-Wechselrichter für maximale Effizienz</div>
+          </div>
+          <div class="spec-card fade-up">
+            <div class="spec-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="spec-value">25 + 10 Jahre</div>
+            <div class="spec-label">Garantie</div>
+            <div class="spec-detail">25 Jahre Modulgarantie, 10 Jahre Wechselrichtergarantie</div>
+          </div>
+          <div class="spec-card fade-up">
+            <div class="spec-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <div class="spec-value">App & Web</div>
+            <div class="spec-label">Monitoring</div>
+            <div class="spec-detail">Ihre Erträge jederzeit im Blick — per Smartphone oder Browser</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="dach-cta" aria-labelledby="dach-cta-heading">
+      <div class="container">
+        <div class="fade-up">
+          <h2 id="dach-cta-heading">Bereit für Ihre Solaranlage?</h2>
+          <p>Lassen Sie sich jetzt kostenlos und unverbindlich beraten. Wir finden die optimale Lösung für Ihr Dach.</p>
+          <a href="index.html#kontakt" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Jetzt Angebot anfragen
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color:var(--white);margin-bottom:12px;">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="8" fill="#f59e0b"/>
+              <line x1="16" y1="2" x2="16" y2="7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="16" y1="25" x2="16" y2="30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="2" y1="16" x2="7" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="25" y1="16" x2="30" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            Solaranlage Berger
+          </div>
+          <p>Ihr regionaler Meisterbetrieb für Photovoltaik in Unterfranken. Seit über 25 Jahren.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Leistungen</h4>
+          <ul class="footer-links">
+            <li><a href="dachanlagen.html">Dachanlagen</a></li>
+            <li><a href="index.html#leistungen">Batteriespeicher</a></li>
+            <li><a href="index.html#leistungen">Wallbox</a></li>
+            <li><a href="index.html#preise">Preise & Pakete</a></li>
+            <li><a href="index.html#rechner">Solar-Rechner</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Information</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#ueber-uns">Über uns</a></li>
+            <li><a href="index.html#prozess">So funktioniert's</a></li>
+            <li><a href="index.html#referenzen">Kundenstimmen</a></li>
+            <li><a href="index.html#faq">Häufige Fragen</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+4960226519130">06022 651 913 0</a></li>
+            <li><a href="mailto:info@solaranlage-berger.de">info@solaranlage-berger.de</a></li>
+            <li>Wilhelmstr. 10</li>
+            <li>63450 Hanau</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Solaranlage Berger (LB+ GmbH) — Alle Rechte vorbehalten</span>
+        <div class="footer-bottom-links">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript: Hero Canvas Animation -->
+  <script>
+  (function() {
+    const canvas = document.getElementById('dachHeroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h, dpr, scrollY = 0;
+    let animationTime = 0;
+    let panels = [];
+    let particles = [];
+    let sunRays = [];
+
+    function resize() {
+      dpr = window.devicePixelRatio || 1;
+      w = canvas.parentElement.offsetWidth;
+      h = canvas.parentElement.offsetHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initPanels();
+    }
+
+    function initPanels() {
+      panels = [];
+      const cols = 6;
+      const rows = 4;
+      const panelW = Math.min(60, w * 0.06);
+      const panelH = panelW * 0.6;
+      const gap = panelW * 0.15;
+      const totalW = cols * (panelW + gap) - gap;
+      const totalH = rows * (panelH + gap) - gap;
+      const startX = w / 2 - totalW / 2;
+      const startY = h / 2 - totalH / 2 + h * 0.08;
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const delay = (r * cols + c) * 0.12;
+          const fromDir = Math.random();
+          let fromX, fromY;
+          if (fromDir < 0.25) { fromX = -100; fromY = startY + r * (panelH + gap); }
+          else if (fromDir < 0.5) { fromX = w + 100; fromY = startY + r * (panelH + gap); }
+          else if (fromDir < 0.75) { fromX = startX + c * (panelW + gap); fromY = -100; }
+          else { fromX = startX + c * (panelW + gap); fromY = h + 100; }
+
+          panels.push({
+            x: startX + c * (panelW + gap),
+            y: startY + r * (panelH + gap),
+            w: panelW,
+            h: panelH,
+            fromX: fromX,
+            fromY: fromY,
+            delay: delay,
+            opacity: 0,
+            row: r,
+            col: c
+          });
+        }
+      }
+    }
+
+    function spawnParticle() {
+      if (panels.length === 0) return;
+      const p = panels[Math.floor(Math.random() * panels.length)];
+      if (animationTime < p.delay + 1.2) return;
+      particles.push({
+        x: p.x + p.w / 2,
+        y: p.y,
+        vx: (Math.random() - 0.5) * 1.5,
+        vy: -Math.random() * 2 - 1,
+        life: 1,
+        decay: 0.008 + Math.random() * 0.012,
+        size: Math.random() * 3 + 1.5,
+        color: Math.random() > 0.5 ? '#f59e0b' : '#fbbf24'
+      });
+    }
+
+    function drawSun() {
+      const sunX = w * 0.82;
+      const sunY = h * 0.18;
+      const parallaxOffset = scrollY * 0.15;
+      const sy = sunY - parallaxOffset;
+      const pulse = Math.sin(animationTime * 1.5) * 0.15 + 1;
+      const baseR = Math.min(50, w * 0.06);
+
+      // Outer glow
+      const grd3 = ctx.createRadialGradient(sunX, sy, 0, sunX, sy, baseR * 4);
+      grd3.addColorStop(0, 'rgba(245,158,11,0.08)');
+      grd3.addColorStop(1, 'rgba(245,158,11,0)');
+      ctx.fillStyle = grd3;
+      ctx.beginPath();
+      ctx.arc(sunX, sy, baseR * 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Medium glow
+      const grd2 = ctx.createRadialGradient(sunX, sy, 0, sunX, sy, baseR * 2.2 * pulse);
+      grd2.addColorStop(0, 'rgba(245,158,11,0.15)');
+      grd2.addColorStop(1, 'rgba(245,158,11,0)');
+      ctx.fillStyle = grd2;
+      ctx.beginPath();
+      ctx.arc(sunX, sy, baseR * 2.2 * pulse, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Sun body
+      const grd = ctx.createRadialGradient(sunX, sy, 0, sunX, sy, baseR * pulse);
+      grd.addColorStop(0, 'rgba(251,191,36,0.9)');
+      grd.addColorStop(0.7, 'rgba(245,158,11,0.6)');
+      grd.addColorStop(1, 'rgba(245,158,11,0)');
+      ctx.fillStyle = grd;
+      ctx.beginPath();
+      ctx.arc(sunX, sy, baseR * pulse, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Rays
+      const rayCount = 12;
+      for (let i = 0; i < rayCount; i++) {
+        const angle = (i / rayCount) * Math.PI * 2 + animationTime * 0.3;
+        const rayLen = baseR * (1.8 + Math.sin(animationTime * 2 + i) * 0.4);
+        const x1 = sunX + Math.cos(angle) * baseR * 0.8;
+        const y1 = sy + Math.sin(angle) * baseR * 0.8;
+        const x2 = sunX + Math.cos(angle) * rayLen;
+        const y2 = sy + Math.sin(angle) * rayLen;
+        ctx.strokeStyle = 'rgba(245,158,11,' + (0.15 + Math.sin(animationTime * 2 + i) * 0.1) + ')';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+
+      // Draw light beams from sun to panels
+      if (animationTime > 2) {
+        const beamOpacity = Math.min(0.06, (animationTime - 2) * 0.015);
+        panels.forEach(function(p, i) {
+          if (i % 4 !== 0) return;
+          ctx.strokeStyle = 'rgba(245,158,11,' + beamOpacity + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(sunX, sy);
+          ctx.lineTo(p.x + p.w / 2, p.y + p.h / 2);
+          ctx.stroke();
+        });
+      }
+    }
+
+    function drawPanels() {
+      panels.forEach(function(p) {
+        const t = Math.max(0, Math.min(1, (animationTime - p.delay) / 1.0));
+        const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+        const cx = p.fromX + (p.x - p.fromX) * ease;
+        const cy = p.fromY + (p.y - p.fromY) * ease;
+        p.opacity = ease;
+
+        if (ease <= 0) return;
+
+        const parallaxY = scrollY * 0.05;
+
+        // Panel shadow
+        ctx.fillStyle = 'rgba(0,0,0,' + (0.15 * ease) + ')';
+        ctx.fillRect(cx + 2, cy + 2 - parallaxY, p.w, p.h);
+
+        // Panel body
+        ctx.fillStyle = 'rgba(30,50,80,' + (0.85 * ease) + ')';
+        ctx.fillRect(cx, cy - parallaxY, p.w, p.h);
+
+        // Panel grid lines
+        ctx.strokeStyle = 'rgba(100,140,200,' + (0.3 * ease) + ')';
+        ctx.lineWidth = 0.5;
+        // Horizontal line
+        ctx.beginPath();
+        ctx.moveTo(cx, cy + p.h / 2 - parallaxY);
+        ctx.lineTo(cx + p.w, cy + p.h / 2 - parallaxY);
+        ctx.stroke();
+        // Vertical line
+        ctx.beginPath();
+        ctx.moveTo(cx + p.w / 2, cy - parallaxY);
+        ctx.lineTo(cx + p.w / 2, cy + p.h - parallaxY);
+        ctx.stroke();
+
+        // Panel highlight
+        const shimmer = Math.sin(animationTime * 2 + p.row + p.col * 0.5) * 0.08 + 0.08;
+        ctx.fillStyle = 'rgba(140,180,255,' + (shimmer * ease) + ')';
+        ctx.fillRect(cx, cy - parallaxY, p.w * 0.4, p.h * 0.3);
+
+        // Panel border
+        ctx.strokeStyle = 'rgba(80,120,180,' + (0.4 * ease) + ')';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(cx, cy - parallaxY, p.w, p.h);
+      });
+    }
+
+    function updateParticles() {
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= p.decay;
+        if (p.life <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+    }
+
+    function drawParticles() {
+      particles.forEach(function(p) {
+        ctx.globalAlpha = p.life * 0.8;
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y - scrollY * 0.05, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    function drawGrid() {
+      ctx.strokeStyle = 'rgba(255,255,255,0.02)';
+      ctx.lineWidth = 1;
+      const gridSize = 60;
+      for (let x = 0; x < w; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+    }
+
+    let lastTime = 0;
+    function animate(timestamp) {
+      const dt = lastTime ? (timestamp - lastTime) / 1000 : 0.016;
+      lastTime = timestamp;
+      animationTime += dt;
+
+      ctx.clearRect(0, 0, w, h);
+
+      drawGrid();
+      drawSun();
+      drawPanels();
+
+      // Spawn particles after panels assembled
+      if (animationTime > 3 && particles.length < 60) {
+        if (Math.random() < 0.4) spawnParticle();
+      }
+
+      updateParticles();
+      drawParticles();
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    window.addEventListener('scroll', function() { scrollY = window.pageYOffset; }, { passive: true });
+    resize();
+    requestAnimationFrame(animate);
+  })();
+  </script>
+
+  <!-- JavaScript: Shared functionality -->
+  <script>
+  (function() {
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', function() {
+        const open = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', open);
+      });
+      navLinks.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Fade-up on scroll
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+      observer.observe(el);
+    });
+  })();
+  </script>
+
+  <!-- ===== COOKIE CONSENT BANNER ===== -->
+  <div class="consent-banner" id="consentBanner" role="dialog" aria-modal="false" aria-labelledby="consent-title" hidden>
+    <div class="consent-inner">
+      <div class="consent-text">
+        <h3 id="consent-title">🍪 Datenschutz ist uns wichtig</h3>
+        <p>Wir verwenden Cookies und externe Dienste (z.B. Google Fonts), um Ihnen die bestmögliche Erfahrung zu bieten. Sie entscheiden, was geladen wird. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+      </div>
+      <div class="consent-buttons">
+        <button class="consent-btn settings" type="button" onclick="ConsentManager.openSettings()">Einstellungen</button>
+        <button class="consent-btn reject" type="button" onclick="ConsentManager.acceptNecessary()">Nur notwendige</button>
+        <button class="consent-btn accept" type="button" onclick="ConsentManager.acceptAll()">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== COOKIE SETTINGS MODAL ===== -->
+  <div class="consent-modal" id="consentModal" role="dialog" aria-modal="true" aria-labelledby="consent-modal-title" hidden>
+    <div class="consent-modal-backdrop" onclick="ConsentManager.closeSettings()"></div>
+    <div class="consent-modal-box">
+      <div class="consent-modal-header">
+        <h3 id="consent-modal-title">Datenschutz-Einstellungen</h3>
+        <button class="consent-modal-close" type="button" onclick="ConsentManager.closeSettings()" aria-label="Schließen">✕</button>
+      </div>
+      <div class="consent-modal-body">
+        <p class="consent-modal-intro">Wählen Sie, welche Dienste auf dieser Website geladen werden dürfen. Sie können diese Einstellung jederzeit über den Link "Cookie-Einstellungen" im Footer ändern.</p>
+        <div class="consent-category">
+          <div class="consent-category-head">
+            <div><strong>Notwendig</strong><span class="consent-required">Immer aktiv</span></div>
+            <label class="consent-toggle"><input type="checkbox" checked disabled><span class="consent-slider"></span></label>
+          </div>
+          <p>Technisch erforderliche Cookies für die Grundfunktionen der Website. Ohne diese funktioniert die Website nicht korrekt.</p>
+        </div>
+        <div class="consent-category">
+          <div class="consent-category-head">
+            <div><strong>Externe Dienste</strong><span class="consent-optional">Optional</span></div>
+            <label class="consent-toggle"><input type="checkbox" id="consent-external"><span class="consent-slider"></span></label>
+          </div>
+          <p>Lädt externe Inhalte: <strong>Google Fonts</strong> (für die Schriftart) und unseren <strong>Solar-Konfigurator</strong> (Reonic). Bei Aktivierung wird Ihre IP-Adresse an die Anbieter übertragen.</p>
+        </div>
+      </div>
+      <div class="consent-modal-footer">
+        <button class="consent-btn reject" type="button" onclick="ConsentManager.acceptNecessary()">Nur notwendige</button>
+        <button class="consent-btn accept" type="button" onclick="ConsentManager.saveSelection()">Auswahl speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/consent.js" defer></script>
+
+</body>
+</html>

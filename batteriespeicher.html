@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batteriespeicher — Solaranlage Berger | Maximale Unabhaengigkeit</title>
+  <meta name="description" content="Batteriespeicher von Solaranlage Berger: Eigenverbrauch maximieren, Unabhaengigkeit vom Stromnetz, Notstromfaehig. BYD Premium-Speicher. Jetzt beraten lassen!">
+
+  <!-- Fonts -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* ===== BATTERY HERO ===== */
+    .bat-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0a1628 0%, #111b30 40%, #1a2744 100%);
+      overflow: hidden;
+      padding: 120px 20px 80px;
+    }
+    .bat-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(245,158,11,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Ambient particles */
+    .bat-hero-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bat-particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleFloat 4s infinite ease-in-out;
+    }
+    .bat-particle:nth-child(1) { left: 10%; top: 80%; animation-delay: 0s; animation-duration: 3.5s; }
+    .bat-particle:nth-child(2) { left: 25%; top: 75%; animation-delay: 0.5s; animation-duration: 4s; }
+    .bat-particle:nth-child(3) { left: 40%; top: 85%; animation-delay: 1s; animation-duration: 3.8s; }
+    .bat-particle:nth-child(4) { left: 55%; top: 78%; animation-delay: 1.5s; animation-duration: 4.2s; }
+    .bat-particle:nth-child(5) { left: 70%; top: 82%; animation-delay: 2s; animation-duration: 3.6s; }
+    .bat-particle:nth-child(6) { left: 85%; top: 76%; animation-delay: 2.5s; animation-duration: 4.4s; }
+    .bat-particle:nth-child(7) { left: 15%; top: 90%; animation-delay: 0.3s; animation-duration: 3.9s; }
+    .bat-particle:nth-child(8) { left: 60%; top: 88%; animation-delay: 1.8s; animation-duration: 4.1s; }
+    .bat-particle:nth-child(9) { left: 35%; top: 70%; animation-delay: 0.8s; animation-duration: 3.7s; }
+    .bat-particle:nth-child(10) { left: 80%; top: 72%; animation-delay: 2.2s; animation-duration: 4.3s; }
+    .bat-particle:nth-child(11) { left: 48%; top: 92%; animation-delay: 1.2s; animation-duration: 3.4s; }
+    .bat-particle:nth-child(12) { left: 92%; top: 85%; animation-delay: 0.7s; animation-duration: 4.5s; }
+
+    @keyframes particleFloat {
+      0% { opacity: 0; transform: translateY(0) scale(0.5); }
+      20% { opacity: 0.8; }
+      80% { opacity: 0.6; }
+      100% { opacity: 0; transform: translateY(-200px) scale(0); }
+    }
+
+    .bat-hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .bat-hero-text {
+      flex: 1;
+      color: var(--white);
+    }
+    .bat-hero-text h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    .bat-hero-text h1 span {
+      color: var(--accent);
+      display: block;
+    }
+    .bat-hero-text p {
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    /* Battery SVG animation container */
+    .bat-animation-wrap {
+      flex: 0 0 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .bat-svg {
+      width: 260px;
+      height: 380px;
+      filter: drop-shadow(0 0 40px rgba(245,158,11,0.2));
+    }
+
+    /* Battery body outline */
+    .bat-body {
+      fill: none;
+      stroke: rgba(255,255,255,0.3);
+      stroke-width: 3;
+    }
+    .bat-cap {
+      fill: none;
+      stroke: rgba(255,255,255,0.3);
+      stroke-width: 3;
+    }
+
+    /* Battery fill (energy) */
+    .bat-fill {
+      fill: url(#batteryGradient);
+      animation: batteryFill 4s ease-in-out infinite alternate;
+    }
+    @keyframes batteryFill {
+      0% { height: 40px; y: 290px; }
+      100% { height: 250px; y: 80px; }
+    }
+
+    /* Battery fill glow */
+    .bat-fill-glow {
+      fill: url(#batteryGlowGradient);
+      opacity: 0.5;
+      animation: batteryFill 4s ease-in-out infinite alternate;
+      filter: blur(8px);
+    }
+
+    /* Percentage text */
+    .bat-percent {
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 42px;
+      fill: var(--white);
+      text-anchor: middle;
+      animation: percentPulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes percentPulse {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+
+    /* Spark effects */
+    .bat-spark {
+      fill: var(--accent);
+      opacity: 0;
+      animation: sparkFlash 2s infinite;
+    }
+    .bat-spark:nth-child(1) { animation-delay: 0s; }
+    .bat-spark:nth-child(2) { animation-delay: 0.6s; }
+    .bat-spark:nth-child(3) { animation-delay: 1.2s; }
+    .bat-spark:nth-child(4) { animation-delay: 0.3s; }
+    .bat-spark:nth-child(5) { animation-delay: 0.9s; }
+    .bat-spark:nth-child(6) { animation-delay: 1.5s; }
+
+    @keyframes sparkFlash {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Lightning bolts */
+    .bat-lightning {
+      stroke: var(--accent);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      animation: lightningFlash 3s infinite;
+      filter: drop-shadow(0 0 6px rgba(245,158,11,0.8));
+    }
+    .bat-lightning:nth-of-type(2) { animation-delay: 1s; }
+    .bat-lightning:nth-of-type(3) { animation-delay: 2s; }
+    @keyframes lightningFlash {
+      0%, 85%, 100% { opacity: 0; }
+      88%, 92% { opacity: 1; }
+      90% { opacity: 0.3; }
+    }
+
+    /* Energy ring */
+    .bat-energy-ring {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      opacity: 0;
+      transform-origin: center;
+      animation: ringExpand 3s infinite ease-out;
+    }
+    .bat-energy-ring:nth-of-type(2) { animation-delay: 1s; }
+    .bat-energy-ring:nth-of-type(3) { animation-delay: 2s; }
+    @keyframes ringExpand {
+      0% { opacity: 0.6; transform: scale(0.8); }
+      100% { opacity: 0; transform: scale(1.6); }
+    }
+
+    /* Pulsing glow behind battery */
+    .bat-glow-bg {
+      position: absolute;
+      width: 300px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(245,158,11,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: glowPulse 4s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes glowPulse {
+      0% { opacity: 0.4; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* Scroll indicator */
+    .bat-scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      animation: scrollBounce 2s infinite;
+      z-index: 2;
+    }
+    .bat-scroll-indicator svg {
+      animation: scrollArrow 2s infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    @keyframes scrollArrow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ===== BENEFIT CARDS ===== */
+    .bat-benefits {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .bat-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .bat-benefit-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .bat-benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+    .bat-benefit-card:hover::before { transform: scaleX(1); }
+    .bat-benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--accent);
+    }
+    .bat-benefit-icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .bat-benefit-icon svg { color: var(--white); }
+    .bat-benefit-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .bat-benefit-stat {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .bat-benefit-card p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ===== PARTNER SECTION ===== */
+    .bat-partners {
+      padding: 100px 0;
+      background: var(--gray-50);
+    }
+    .bat-partner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .bat-partner-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: var(--transition);
+    }
+    .bat-partner-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+    .bat-partner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-light);
+      color: var(--accent-hover);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    .bat-partner-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .bat-partner-card > p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .bat-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .bat-spec {
+      background: var(--gray-50);
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-100);
+    }
+    .bat-spec-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .bat-spec-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .bat-howitworks {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .bat-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 48px;
+      position: relative;
+    }
+    .bat-flow-step {
+      text-align: center;
+      padding: 40px 28px;
+      position: relative;
+    }
+    .bat-flow-step::after {
+      content: '';
+      position: absolute;
+      top: 60px;
+      right: -1px;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    .bat-flow-step:last-child::after { display: none; }
+    .bat-flow-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 24px rgba(245,158,11,0.25);
+    }
+    .bat-flow-icon svg { color: var(--white); }
+    .bat-flow-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .bat-flow-step h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .bat-flow-step p {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ===== RETROFIT SECTION ===== */
+    .bat-retrofit {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .bat-retrofit::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .bat-retrofit-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .bat-retrofit-text h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .bat-retrofit-text > p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .bat-retrofit-features {
+      list-style: none;
+    }
+    .bat-retrofit-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .bat-retrofit-features li svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--accent);
+    }
+    .bat-retrofit-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bat-retrofit-graphic {
+      width: 100%;
+      max-width: 400px;
+      padding: 40px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+    .bat-retrofit-graphic svg {
+      margin-bottom: 20px;
+    }
+    .bat-retrofit-stat {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .bat-retrofit-stat-label {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== CTA SECTION ===== */
+    .bat-cta-section {
+      padding: 100px 0;
+      background: var(--gray-50);
+      text-align: center;
+    }
+    .bat-cta-section h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .bat-cta-section > .container > p {
+      font-size: 1.1rem;
+      color: var(--gray-500);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .bat-cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .bat-hero-inner {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+      }
+      .bat-hero-text p { margin: 0 auto 36px; }
+      .bat-animation-wrap { flex: none; }
+    }
+
+    @media (max-width: 768px) {
+      .bat-benefits-grid { grid-template-columns: 1fr; }
+      .bat-partner-grid { grid-template-columns: 1fr; }
+      .bat-flow {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .bat-flow-step::after { display: none; }
+      .bat-flow-step { padding: 24px 20px; }
+      .bat-retrofit-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .bat-specs { grid-template-columns: 1fr; }
+    }
+
+    /* Subpage nav link styling */
+    .nav-links a.active {
+      color: var(--accent);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Solaranlage Berger — Startseite">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="8" fill="#f59e0b"/>
+          <line x1="16" y1="2" x2="16" y2="7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="16" y1="25" x2="16" y2="30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="2" y1="16" x2="7" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="25" y1="16" x2="30" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="6.1" y1="6.1" x2="9.6" y2="9.6" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="22.4" y1="22.4" x2="25.9" y2="25.9" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="6.1" y1="25.9" x2="9.6" y2="22.4" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="22.4" y1="9.6" x2="25.9" y2="6.1" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        Solaranlage Berger
+      </a>
+
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav-links" id="navLinks" role="menubar">
+          <li role="none"><a href="index.html#leistungen" role="menuitem">Leistungen</a></li>
+          <li role="none"><a href="index.html#preise" role="menuitem">Preise</a></li>
+          <li role="none"><a href="index.html#rechner" role="menuitem">Solar-Rechner</a></li>
+          <li role="none"><a href="index.html#referenzen" role="menuitem">Referenzen</a></li>
+          <li role="none"><a href="index.html#ueber-uns" role="menuitem">Über uns</a></li>
+          <li role="none"><a href="index.html#kontakt" role="menuitem">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <a href="index.html#kontakt" class="nav-cta">Kostenlos beraten lassen</a>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="bat-hero" aria-labelledby="bat-hero-heading">
+      <!-- Floating particles -->
+      <div class="bat-hero-particles" aria-hidden="true">
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+        <div class="bat-particle"></div>
+      </div>
+
+      <div class="bat-hero-inner">
+        <div class="bat-hero-text fade-up">
+          <h1 id="bat-hero-heading">Batteriespeicher <span>Maximale Unabhaengigkeit</span></h1>
+          <p>Speichern Sie Ihren Solarstrom und nutzen Sie ihn, wenn Sie ihn brauchen. Tag und Nacht.</p>
+          <a href="index.html#kontakt" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Speicher-Beratung anfragen
+          </a>
+        </div>
+
+        <div class="bat-animation-wrap">
+          <div class="bat-glow-bg" aria-hidden="true"></div>
+          <svg class="bat-svg" viewBox="0 0 260 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="batteryGradient" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#f59e0b"/>
+                <stop offset="50%" stop-color="#fbbf24"/>
+                <stop offset="100%" stop-color="#fcd34d"/>
+              </linearGradient>
+              <linearGradient id="batteryGlowGradient" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#fbbf24" stop-opacity="0.2"/>
+              </linearGradient>
+              <clipPath id="batteryClip">
+                <rect x="30" y="60" width="200" height="280" rx="12"/>
+              </clipPath>
+            </defs>
+
+            <!-- Battery cap / terminal -->
+            <rect class="bat-cap" x="95" y="20" width="70" height="30" rx="6"/>
+
+            <!-- Battery body -->
+            <rect class="bat-body" x="30" y="50" width="200" height="300" rx="16"/>
+
+            <!-- Energy fill (animated) -->
+            <g clip-path="url(#batteryClip)">
+              <rect class="bat-fill-glow" x="30" y="290" width="200" height="40" rx="0">
+                <animate attributeName="y" values="290;80" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1" begin="0s" fill="freeze" keyTimes="0;1"/>
+                <animate attributeName="height" values="40;250" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1" begin="0s" fill="freeze" keyTimes="0;1"/>
+              </rect>
+              <rect class="bat-fill" x="30" y="290" width="200" height="40" rx="0" style="animation:none;">
+                <animate attributeName="y" values="290;80" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1" begin="0s" fill="freeze" keyTimes="0;1"/>
+                <animate attributeName="height" values="40;250" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1" begin="0s" fill="freeze" keyTimes="0;1"/>
+              </rect>
+
+              <!-- Shimmer effect -->
+              <rect x="30" y="50" width="200" height="300" fill="url(#shimmer)" opacity="0.15">
+                <animate attributeName="x" values="-200;260" dur="3s" repeatCount="indefinite"/>
+              </rect>
+            </g>
+
+            <!-- Lightning bolt icon inside battery -->
+            <path d="M145 160 L125 200 L140 200 L115 250 L155 195 L135 195 Z" fill="rgba(255,255,255,0.9)" stroke="none">
+              <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+            </path>
+
+            <!-- Energy rings -->
+            <circle class="bat-energy-ring" cx="130" cy="200" r="120"/>
+            <circle class="bat-energy-ring" cx="130" cy="200" r="140"/>
+            <circle class="bat-energy-ring" cx="130" cy="200" r="160"/>
+
+            <!-- Lightning arcs -->
+            <polyline class="bat-lightning" points="10,120 0,140 15,135 5,160"/>
+            <polyline class="bat-lightning" points="250,100 260,125 245,118 255,145"/>
+            <polyline class="bat-lightning" points="15,260 5,280 20,275 10,300"/>
+
+            <!-- Sparks -->
+            <g class="bat-spark"><circle cx="20" cy="150" r="3"/></g>
+            <g class="bat-spark"><circle cx="240" cy="130" r="2.5"/></g>
+            <g class="bat-spark"><circle cx="15" cy="280" r="2"/></g>
+            <g class="bat-spark"><circle cx="245" cy="260" r="3"/></g>
+            <g class="bat-spark"><circle cx="130" cy="40" r="2.5"/></g>
+            <g class="bat-spark"><circle cx="25" cy="200" r="2"/></g>
+
+            <!-- Shimmer gradient -->
+            <defs>
+              <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="white" stop-opacity="0"/>
+                <stop offset="50%" stop-color="white" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="white" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="bat-scroll-indicator" aria-hidden="true">
+        <span>Mehr erfahren</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </section>
+
+    <!-- ===== WARUM EIN BATTERIESPEICHER ===== -->
+    <section class="bat-benefits" aria-labelledby="bat-benefits-heading">
+      <div class="container">
+        <div class="section-header center">
+          <div class="section-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Vorteile
+          </div>
+          <h2 class="section-title" id="bat-benefits-heading">Warum ein Batteriespeicher?</h2>
+          <p class="section-desc">Drei entscheidende Vorteile, die Ihren Solarstrom noch wertvoller machen.</p>
+        </div>
+        <div class="bat-benefits-grid">
+          <!-- Benefit 1 -->
+          <div class="bat-benefit-card fade-up">
+            <div class="bat-benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/><circle cx="12" cy="12" r="5"/></svg>
+            </div>
+            <h3>Eigenverbrauch maximieren</h3>
+            <div class="bat-benefit-stat">30% &rarr; 80%</div>
+            <p>Ohne Speicher nutzen Sie nur ca. 30% Ihres Solarstroms selbst. Mit Speicher steigern Sie Ihren Eigenverbrauch auf bis zu 80%.</p>
+          </div>
+          <!-- Benefit 2 -->
+          <div class="bat-benefit-card fade-up">
+            <div class="bat-benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Unabhaengigkeit vom Stromnetz</h3>
+            <div class="bat-benefit-stat">Notstromfaehig</div>
+            <p>Bei Stromausfall versorgt Ihr Speicher Ihr Zuhause weiter mit Strom. Maximale Sicherheit und Unabhaengigkeit.</p>
+          </div>
+          <!-- Benefit 3 -->
+          <div class="bat-benefit-card fade-up">
+            <div class="bat-benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Langfristig Kosten sparen</h3>
+            <div class="bat-benefit-stat">8&ndash;10 Jahre</div>
+            <p>Die Amortisation eines Batteriespeichers liegt bei 8&ndash;10 Jahren. Danach sparen Sie dauerhaft bares Geld.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== UNSERE SPEICHER-PARTNER ===== -->
+    <section class="bat-partners" aria-labelledby="bat-partners-heading">
+      <div class="container">
+        <div class="section-header center">
+          <div class="section-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Partner
+          </div>
+          <h2 class="section-title" id="bat-partners-heading">Unsere Speicher-Partner</h2>
+          <p class="section-desc">Wir setzen auf bewaehrte Qualitaet und langlebige Technik namhafter Hersteller.</p>
+        </div>
+        <div class="bat-partner-grid">
+          <!-- BYD -->
+          <div class="bat-partner-card fade-up">
+            <div class="bat-partner-badge">Top-Empfehlung</div>
+            <h3>BYD HVS / HVM</h3>
+            <p>Der weltweit meistverkaufte Hochvolt-Batteriespeicher. Modular erweiterbar, langlebig und sicher mit LFP-Technologie.</p>
+            <div class="bat-specs">
+              <div class="bat-spec">
+                <div class="bat-spec-label">Kapazitaet</div>
+                <div class="bat-spec-value">5,1 &ndash; 12,8 kWh</div>
+              </div>
+              <div class="bat-spec">
+                <div class="bat-spec-label">Technologie</div>
+                <div class="bat-spec-value">LiFePO4 (LFP)</div>
+              </div>
+              <div class="bat-spec">
+                <div class="bat-spec-label">Erweiterbar</div>
+                <div class="bat-spec-value">Modular (2,56 kWh)</div>
+              </div>
+              <div class="bat-spec">
+                <div class="bat-spec-label">Garantie</div>
+                <div class="bat-spec-value">10 Jahre</div>
+              </div>
+            </div>
+          </div>
+          <!-- Weitere Hersteller -->
+          <div class="bat-partner-card fade-up">
+            <div class="bat-partner-badge">Premium-Auswahl</div>
+            <h3>Weitere Premium-Hersteller</h3>
+            <p>Je nach Anforderung und Budget empfehlen wir auch Speicher von weiteren Top-Herstellern. Alle Systeme sind notstromfaehig und erweiterbar.</p>
+            <div class="bat-specs">
+              <div class="bat-spec">
+                <div class="bat-spec-label">Kapazitaet</div>
+                <div class="bat-spec-value">5 &ndash; 15+ kWh</div>
+              </div>
+              <div class="bat-spec">
+                <div class="bat-spec-label">Technologie</div>
+                <div class="bat-spec-value">Li-Ion / LFP</div>
+              </div>
+              <div class="bat-spec">
+                <div class="bat-spec-label">Kompatibilitaet</div>
+                <div class="bat-spec-value">SMA, Fronius u.a.</div>
+              </div>
+              <div class="bat-spec">
+                <div class="bat-spec-label">Garantie</div>
+                <div class="bat-spec-value">bis 15 Jahre</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SO FUNKTIONIERT EIN SPEICHER ===== -->
+    <section class="bat-howitworks" aria-labelledby="bat-howitworks-heading">
+      <div class="container">
+        <div class="section-header center">
+          <div class="section-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Einfach erklaert
+          </div>
+          <h2 class="section-title" id="bat-howitworks-heading">So funktioniert ein Speicher</h2>
+          <p class="section-desc">Der Tagesablauf mit Ihrem Batteriespeicher in drei einfachen Schritten.</p>
+        </div>
+        <div class="bat-flow">
+          <!-- Step 1 -->
+          <div class="bat-flow-step fade-up">
+            <div class="bat-flow-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42"/></svg>
+            </div>
+            <div class="bat-flow-label">Tagsueber</div>
+            <h3>Solarstrom wird gespeichert</h3>
+            <p>Ihre PV-Anlage produziert Strom. Was Sie nicht sofort verbrauchen, fliesst direkt in Ihren Speicher.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="bat-flow-step fade-up">
+            <div class="bat-flow-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <div class="bat-flow-label">Abends</div>
+            <h3>Gespeicherter Strom wird genutzt</h3>
+            <p>Wenn die Sonne untergeht, versorgt Ihr Speicher Sie automatisch mit Ihrem eigenen Solarstrom.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="bat-flow-step fade-up">
+            <div class="bat-flow-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </div>
+            <div class="bat-flow-label">Nachts</div>
+            <h3>Reststrom aus dem Netz</h3>
+            <p>Nur wenn der Speicher leer ist, wird minimal Strom aus dem Netz bezogen. In den meisten Faellen weniger als 20%.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NACHRUESTUNG MOEGLICH ===== -->
+    <section class="bat-retrofit" aria-labelledby="bat-retrofit-heading">
+      <div class="container">
+        <div class="bat-retrofit-inner">
+          <div class="bat-retrofit-text fade-up">
+            <div class="section-label" style="color: var(--accent);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Nachruestung
+            </div>
+            <h2 id="bat-retrofit-heading">Nachruestung moeglich</h2>
+            <p>Sie haben bereits eine Photovoltaikanlage? Kein Problem. Ein Batteriespeicher kann jederzeit nachgeruestet werden.</p>
+            <ul class="bat-retrofit-features">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Kompatibel mit den meisten Wechselrichtern (SMA, Fronius, Huawei u.a.)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Bestehende PV-Anlage muss nicht veraendert werden
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Installation in der Regel innerhalb eines Tages
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Eigenverbrauchsquote sofort deutlich gesteigert
+              </li>
+            </ul>
+          </div>
+          <div class="bat-retrofit-visual fade-up">
+            <div class="bat-retrofit-graphic">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="6" width="22" height="12" rx="2"/>
+                <line x1="23" y1="10" x2="23" y2="14"/>
+                <path d="M7 10h4v4H7z"/>
+                <path d="M13 10h4v4h-4z"/>
+              </svg>
+              <div class="bat-retrofit-stat">1 Tag</div>
+              <div class="bat-retrofit-stat-label">Installation &mdash; schnell und unkompliziert</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="bat-cta-section" aria-labelledby="bat-cta-heading">
+      <div class="container">
+        <div class="section-label" style="justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Jetzt starten
+        </div>
+        <h2 id="bat-cta-heading">Bereit fuer mehr Unabhaengigkeit?</h2>
+        <p>Lassen Sie sich kostenlos und unverbindlich beraten. Wir finden die passende Speicherloessung fuer Ihr Zuhause.</p>
+        <div class="bat-cta-buttons">
+          <a href="index.html#kontakt" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Kostenlos beraten lassen
+          </a>
+          <a href="tel:+4960226519130" class="btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            06022 651 913 0
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color:var(--white);margin-bottom:12px;">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="8" fill="#f59e0b"/>
+              <line x1="16" y1="2" x2="16" y2="7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="16" y1="25" x2="16" y2="30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="2" y1="16" x2="7" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="25" y1="16" x2="30" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            Solaranlage Berger
+          </div>
+          <p>Ihr regionaler Meisterbetrieb für Photovoltaik in Unterfranken. Seit über 25 Jahren.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Leistungen</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#leistungen">Dachanlagen</a></li>
+            <li><a href="batteriespeicher.html">Batteriespeicher</a></li>
+            <li><a href="index.html#leistungen">Wallbox</a></li>
+            <li><a href="index.html#preise">Preise & Pakete</a></li>
+            <li><a href="index.html#rechner">Solar-Rechner</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Information</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#ueber-uns">Über uns</a></li>
+            <li><a href="index.html#prozess">So funktioniert's</a></li>
+            <li><a href="index.html#referenzen">Kundenstimmen</a></li>
+            <li><a href="index.html#faq">Häufige Fragen</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+4960226519130">06022 651 913 0</a></li>
+            <li><a href="mailto:info@solaranlage-berger.de">info@solaranlage-berger.de</a></li>
+            <li>Wilhelmstr. 10</li>
+            <li>63450 Hanau</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Solaranlage Berger (LB+ GmbH) — Alle Rechte vorbehalten</span>
+        <div class="footer-bottom-links">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript: Scroll animations & mobile menu -->
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+      });
+    }
+
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      if (header) header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Fade-up on scroll (IntersectionObserver)
+    const fadeEls = document.querySelectorAll('.fade-up');
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      fadeEls.forEach(el => obs.observe(el));
+    } else {
+      fadeEls.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+  <!-- ===== COOKIE CONSENT BANNER ===== -->
+  <div class="consent-banner" id="consentBanner" role="dialog" aria-modal="false" aria-labelledby="consent-title" hidden>
+    <div class="consent-inner">
+      <div class="consent-text">
+        <h3 id="consent-title">🍪 Datenschutz ist uns wichtig</h3>
+        <p>Wir verwenden Cookies und externe Dienste (z.B. Google Fonts), um Ihnen die bestmögliche Erfahrung zu bieten. Sie entscheiden, was geladen wird. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+      </div>
+      <div class="consent-buttons">
+        <button class="consent-btn settings" type="button" onclick="ConsentManager.openSettings()">Einstellungen</button>
+        <button class="consent-btn reject" type="button" onclick="ConsentManager.acceptNecessary()">Nur notwendige</button>
+        <button class="consent-btn accept" type="button" onclick="ConsentManager.acceptAll()">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== COOKIE SETTINGS MODAL ===== -->
+  <div class="consent-modal" id="consentModal" role="dialog" aria-modal="true" aria-labelledby="consent-modal-title" hidden>
+    <div class="consent-modal-backdrop" onclick="ConsentManager.closeSettings()"></div>
+    <div class="consent-modal-box">
+      <div class="consent-modal-header">
+        <h3 id="consent-modal-title">Datenschutz-Einstellungen</h3>
+        <button class="consent-modal-close" type="button" onclick="ConsentManager.closeSettings()" aria-label="Schließen">✕</button>
+      </div>
+      <div class="consent-modal-body">
+        <p class="consent-modal-intro">Wählen Sie, welche Dienste auf dieser Website geladen werden dürfen. Sie können diese Einstellung jederzeit über den Link "Cookie-Einstellungen" im Footer ändern.</p>
+        <div class="consent-category">
+          <div class="consent-category-head">
+            <div><strong>Notwendig</strong><span class="consent-required">Immer aktiv</span></div>
+            <label class="consent-toggle"><input type="checkbox" checked disabled><span class="consent-slider"></span></label>
+          </div>
+          <p>Technisch erforderliche Cookies für die Grundfunktionen der Website. Ohne diese funktioniert die Website nicht korrekt.</p>
+        </div>
+        <div class="consent-category">
+          <div class="consent-category-head">
+            <div><strong>Externe Dienste</strong><span class="consent-optional">Optional</span></div>
+            <label class="consent-toggle"><input type="checkbox" id="consent-external"><span class="consent-slider"></span></label>
+          </div>
+          <p>Lädt externe Inhalte: <strong>Google Fonts</strong> (für die Schriftart) und unseren <strong>Solar-Konfigurator</strong> (Reonic). Bei Aktivierung wird Ihre IP-Adresse an die Anbieter übertragen.</p>
+        </div>
+      </div>
+      <div class="consent-modal-footer">
+        <button class="consent-btn reject" type="button" onclick="ConsentManager.acceptNecessary()">Nur notwendige</button>
+        <button class="consent-btn accept" type="button" onclick="ConsentManager.saveSelection()">Auswahl speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/consent.js" defer></script>
+
+</body>
+</html>

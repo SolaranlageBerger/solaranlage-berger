@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallbox &mdash; E-Auto laden mit Solarstrom | Solaranlage Berger</title>
+  <meta name="description" content="Wallbox vom Meisterbetrieb: Laden Sie Ihr E-Auto mit eigenem Solarstrom. 11 kW & 22 kW Wallboxen, intelligentes PV-Überschussladen, Installation aus einer Hand.">
+  <meta name="keywords" content="Wallbox Hanau, E-Auto laden Solarstrom, Wallbox Installation, PV Überschussladen, Ladestation Zuhause, Wallbox Förderung">
+  <link rel="canonical" href="https://www.solaranlage-berger.de/wallbox.html">
+
+  <meta property="og:title" content="Wallbox — E-Auto laden mit Solarstrom | Solaranlage Berger">
+  <meta property="og:description" content="Wallbox-Installation vom Meisterbetrieb. Laden Sie Ihr E-Auto günstig mit eigenem Solarstrom.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.solaranlage-berger.de/wallbox.html">
+  <meta property="og:locale" content="de_DE">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* ===== WALLBOX HERO ===== */
+    .wb-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a 0%, #1a2744 40%, #1e3a5f 100%);
+      padding: 100px 20px 60px;
+    }
+    .wb-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(34,197,94,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .wb-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .wb-hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      max-width: 1200px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .wb-hero-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .wb-hero-text .section-label {
+      color: var(--green-500);
+      margin-bottom: 16px;
+    }
+    .wb-hero-text h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+    .wb-hero-text h1 span {
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .wb-hero-sub {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .wb-hero .btn-primary {
+      background: var(--green-500);
+      box-shadow: 0 4px 20px rgba(34,197,94,0.35);
+      font-size: 1.05rem;
+      padding: 16px 32px;
+    }
+    .wb-hero .btn-primary:hover {
+      background: #16a34a;
+      box-shadow: 0 6px 28px rgba(34,197,94,0.45);
+    }
+
+    .wb-hero-visual {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+    .wb-hero-visual svg {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    .scroll-indicator .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollLineAnim 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    @keyframes scrollLineAnim {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ===== SVG ANIMATIONS ===== */
+    @keyframes chargePulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    @keyframes flowDot {
+      0% { offset-distance: 0%; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { offset-distance: 100%; opacity: 0; }
+    }
+    @keyframes carGlow {
+      0%, 100% { filter: drop-shadow(0 0 4px rgba(34,197,94,0.3)); }
+      50% { filter: drop-shadow(0 0 12px rgba(34,197,94,0.6)); }
+    }
+    @keyframes chargeFill {
+      0% { height: 0; }
+      100% { height: 18px; }
+    }
+    @keyframes boltFlash {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    .svg-car-body {
+      animation: carGlow 3s ease-in-out infinite;
+    }
+    .svg-charge-indicator rect.charge-fill {
+      animation: chargeFill 4s ease-in-out infinite alternate;
+    }
+    .energy-dot {
+      r: 3;
+      fill: #4ade80;
+      filter: drop-shadow(0 0 4px rgba(74,222,128,0.8));
+    }
+    .energy-dot:nth-child(1) { animation: flowDot 1.8s linear infinite; }
+    .energy-dot:nth-child(2) { animation: flowDot 1.8s linear 0.45s infinite; }
+    .energy-dot:nth-child(3) { animation: flowDot 1.8s linear 0.9s infinite; }
+    .energy-dot:nth-child(4) { animation: flowDot 1.8s linear 1.35s infinite; }
+    .bolt-anim {
+      animation: boltFlash 1.2s ease-in-out infinite;
+    }
+    .bolt-anim:nth-child(2) { animation-delay: 0.4s; }
+    .bolt-anim:nth-child(3) { animation-delay: 0.8s; }
+    .wallbox-led {
+      animation: chargePulse 1.5s ease-in-out infinite;
+    }
+
+    /* ===== VORTEILE SECTION ===== */
+    .wb-vorteile {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .wb-vorteile-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .wb-vorteil-card {
+      padding: 36px 28px;
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-100);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .wb-vorteil-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--green-500);
+    }
+    .wb-vorteil-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .wb-vorteil-icon svg { color: var(--white); }
+    .wb-vorteil-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .wb-vorteil-card p {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ===== PRODUKTE SECTION ===== */
+    .wb-produkte {
+      background: var(--gray-50);
+      padding: 100px 0;
+    }
+    .wb-produkte-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .wb-produkt-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      border: 1px solid var(--gray-200);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .wb-produkt-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+    .wb-produkt-card:hover::before { transform: scaleX(1); }
+    .wb-produkt-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+    .wb-produkt-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      background: var(--green-50);
+      color: var(--green-500);
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .wb-produkt-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .wb-produkt-card .wb-produkt-sub {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      margin-bottom: 20px;
+    }
+    .wb-produkt-features {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .wb-produkt-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      padding: 6px 0;
+    }
+    .wb-produkt-features li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--green-500);
+    }
+    .wb-produkt-card .btn-primary {
+      width: 100%;
+      justify-content: center;
+      background: var(--green-500);
+      box-shadow: 0 4px 14px rgba(34,197,94,0.25);
+    }
+    .wb-produkt-card .btn-primary:hover {
+      background: #16a34a;
+      box-shadow: 0 6px 20px rgba(34,197,94,0.35);
+    }
+
+    .wb-extra-features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .wb-extra-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+    .wb-extra-feature svg { color: var(--green-500); flex-shrink: 0; }
+
+    /* ===== KOMBI SECTION ===== */
+    .wb-kombi {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .wb-kombi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .wb-kombi-card {
+      padding: 36px 28px;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid #dcfce7;
+      transition: var(--transition);
+    }
+    .wb-kombi-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .wb-kombi-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .wb-kombi-icon svg { color: var(--white); }
+    .wb-kombi-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .wb-kombi-card p {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .wb-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .wb-cta::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(34,197,94,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .wb-cta h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .wb-cta p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 550px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    .wb-cta .btn-primary {
+      background: var(--green-500);
+      box-shadow: 0 4px 20px rgba(34,197,94,0.35);
+      font-size: 1.05rem;
+      padding: 16px 36px;
+      position: relative;
+      z-index: 1;
+    }
+    .wb-cta .btn-primary:hover {
+      background: #16a34a;
+      box-shadow: 0 6px 28px rgba(34,197,94,0.45);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .wb-hero-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .wb-hero-sub { margin-left: auto; margin-right: auto; }
+      .wb-hero-visual svg { max-width: 400px; }
+      .wb-vorteile-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .wb-vorteile-grid { grid-template-columns: 1fr; }
+      .wb-produkte-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .wb-kombi-grid { grid-template-columns: 1fr; }
+      .wb-extra-features { gap: 20px; }
+    }
+    @media (max-width: 480px) {
+      .wb-hero { padding: 120px 16px 80px; }
+      .wb-hero-visual svg { max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Solaranlage Berger — Startseite">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="8" fill="#f59e0b"/>
+          <line x1="16" y1="2" x2="16" y2="7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="16" y1="25" x2="16" y2="30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="2" y1="16" x2="7" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="25" y1="16" x2="30" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="6.1" y1="6.1" x2="9.6" y2="9.6" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="22.4" y1="22.4" x2="25.9" y2="25.9" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="6.1" y1="25.9" x2="9.6" y2="22.4" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="22.4" y1="9.6" x2="25.9" y2="6.1" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        Solaranlage Berger
+      </a>
+
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav-links" id="navLinks" role="menubar">
+          <li role="none"><a href="index.html#leistungen" role="menuitem">Leistungen</a></li>
+          <li role="none"><a href="index.html#preise" role="menuitem">Preise</a></li>
+          <li role="none"><a href="index.html#rechner" role="menuitem">Solar-Rechner</a></li>
+          <li role="none"><a href="index.html#referenzen" role="menuitem">Referenzen</a></li>
+          <li role="none"><a href="index.html#ueber-uns" role="menuitem">Über uns</a></li>
+          <li role="none"><a href="index.html#kontakt" role="menuitem">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <a href="index.html#kontakt" class="nav-cta">Kostenlos beraten lassen</a>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="wb-hero" aria-labelledby="wb-hero-heading">
+      <div class="wb-hero-inner">
+        <div class="wb-hero-text fade-up">
+          <p class="section-label">E-Mobilität</p>
+          <h1 id="wb-hero-heading">Wallbox — <span>Laden mit Sonnenstrom</span></h1>
+          <p class="wb-hero-sub">Laden Sie Ihr E-Auto günstig und umweltfreundlich mit Strom vom eigenen Dach.</p>
+          <a href="index.html#kontakt" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Wallbox-Angebot anfragen
+          </a>
+        </div>
+
+        <div class="wb-hero-visual fade-up">
+          <!-- SVG: Car + Wallbox + Animated Charging Cable -->
+          <svg viewBox="0 0 520 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="carGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#22c55e" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#4ade80" stop-opacity="0.4"/>
+              </linearGradient>
+              <linearGradient id="wallboxGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#374151"/>
+                <stop offset="100%" stop-color="#1f2937"/>
+              </linearGradient>
+              <filter id="glowGreen">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <path id="cablePath" d="M 430 180 C 400 180, 370 200, 340 210 C 310 220, 280 230, 260 235 C 240 240, 220 240, 200 235"/>
+            </defs>
+
+            <!-- Ground line -->
+            <line x1="40" y1="290" x2="480" y2="290" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+            <!-- === WALLBOX === -->
+            <g transform="translate(410, 120)">
+              <!-- Wallbox body -->
+              <rect x="0" y="0" width="60" height="160" rx="8" fill="url(#wallboxGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+              <!-- Screen area -->
+              <rect x="10" y="15" width="40" height="30" rx="4" fill="#111827" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <!-- LED indicator -->
+              <circle cx="30" cy="30" r="4" fill="#22c55e" class="wallbox-led" filter="url(#glowGreen)"/>
+              <!-- Wallbox label -->
+              <rect x="14" y="55" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
+              <rect x="18" y="62" width="24" height="2" rx="1" fill="rgba(255,255,255,0.08)"/>
+              <!-- Cable outlet -->
+              <circle cx="30" cy="90" r="10" fill="#111827" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+              <circle cx="30" cy="90" r="5" fill="rgba(34,197,94,0.3)"/>
+              <!-- Mount bracket -->
+              <rect x="15" y="160" width="30" height="10" rx="2" fill="#374151" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            </g>
+
+            <!-- === CHARGING CABLE === -->
+            <path d="M 430 210 C 400 210, 370 225, 340 235 C 310 245, 280 250, 260 252 C 240 254, 220 252, 200 248" stroke="rgba(255,255,255,0.25)" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <!-- Cable inner glow -->
+            <path d="M 430 210 C 400 210, 370 225, 340 235 C 310 245, 280 250, 260 252 C 240 254, 220 252, 200 248" stroke="rgba(34,197,94,0.15)" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+            <!-- Energy flow dots along cable -->
+            <circle class="energy-dot" r="3.5">
+              <animateMotion dur="1.8s" repeatCount="indefinite" path="M 430 210 C 400 210, 370 225, 340 235 C 310 245, 280 250, 260 252 C 240 254, 220 252, 200 248"/>
+            </circle>
+            <circle class="energy-dot" r="3">
+              <animateMotion dur="1.8s" begin="0.45s" repeatCount="indefinite" path="M 430 210 C 400 210, 370 225, 340 235 C 310 245, 280 250, 260 252 C 240 254, 220 252, 200 248"/>
+            </circle>
+            <circle class="energy-dot" r="3.5">
+              <animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite" path="M 430 210 C 400 210, 370 225, 340 235 C 310 245, 280 250, 260 252 C 240 254, 220 252, 200 248"/>
+            </circle>
+            <circle class="energy-dot" r="3">
+              <animateMotion dur="1.8s" begin="1.35s" repeatCount="indefinite" path="M 430 210 C 400 210, 370 225, 340 235 C 310 245, 280 250, 260 252 C 240 254, 220 252, 200 248"/>
+            </circle>
+
+            <!-- === ELECTRIC CAR === -->
+            <g class="svg-car-body" transform="translate(40, 170)">
+              <!-- Car body -->
+              <path d="M 30 95 L 30 60 C 30 55, 35 50, 40 48 L 80 30 C 85 28, 90 25, 95 22 L 140 8 C 145 6, 155 5, 160 5 L 200 5 C 210 5, 220 8, 225 12 L 255 35 C 258 38, 260 42, 260 46 L 260 70 C 260 72, 265 75, 270 76 L 280 78 C 285 79, 288 83, 288 88 L 288 95 C 288 100, 285 103, 280 103 L 30 103 C 25 103, 22 100, 22 95 Z" fill="none" stroke="url(#carGrad)" stroke-width="2.5"/>
+
+              <!-- Windshield -->
+              <path d="M 95 25 L 140 10 C 145 8, 155 7, 160 7 L 195 7 L 185 45 L 95 45 Z" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+
+              <!-- Rear window -->
+              <path d="M 85 28 L 55 48 L 55 45 C 55 42, 57 40, 60 38 L 85 28 Z" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.2)" stroke-width="1"/>
+
+              <!-- Door line -->
+              <line x1="150" y1="12" x2="150" y2="90" stroke="rgba(34,197,94,0.2)" stroke-width="1"/>
+
+              <!-- Door handle -->
+              <rect x="155" y="50" width="20" height="4" rx="2" fill="rgba(34,197,94,0.4)"/>
+
+              <!-- Headlight -->
+              <ellipse cx="275" cy="82" rx="8" ry="6" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.5)" stroke-width="1.5"/>
+
+              <!-- Taillight -->
+              <ellipse cx="32" cy="82" rx="5" ry="6" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.5)" stroke-width="1.5"/>
+
+              <!-- Charge port (where cable connects) -->
+              <rect x="155" y="72" width="14" height="10" rx="3" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.6)" stroke-width="1.5">
+                <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+              </rect>
+
+              <!-- Wheels -->
+              <circle cx="85" cy="105" r="22" fill="#111827" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+              <circle cx="85" cy="105" r="14" fill="#1f2937" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <circle cx="85" cy="105" r="4" fill="rgba(255,255,255,0.15)"/>
+
+              <circle cx="235" cy="105" r="22" fill="#111827" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+              <circle cx="235" cy="105" r="14" fill="#1f2937" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <circle cx="235" cy="105" r="4" fill="rgba(255,255,255,0.15)"/>
+
+              <!-- "EV" badge -->
+              <rect x="110" y="60" width="30" height="16" rx="4" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+              <text x="125" y="72" text-anchor="middle" fill="rgba(34,197,94,0.7)" font-size="9" font-weight="700" font-family="sans-serif">EV</text>
+            </g>
+
+            <!-- === LIGHTNING BOLTS along cable === -->
+            <g class="bolt-anim" filter="url(#glowGreen)">
+              <path d="M 360 228 L 355 235 L 360 235 L 356 242" stroke="#4ade80" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </g>
+            <g class="bolt-anim" filter="url(#glowGreen)">
+              <path d="M 300 245 L 295 252 L 300 252 L 296 259" stroke="#4ade80" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </g>
+            <g class="bolt-anim" filter="url(#glowGreen)">
+              <path d="M 240 248 L 235 255 L 240 255 L 236 262" stroke="#4ade80" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </g>
+
+            <!-- === CHARGING STATUS === -->
+            <g class="svg-charge-indicator" transform="translate(445, 145)">
+              <rect x="0" y="0" width="12" height="24" rx="3" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <rect class="charge-fill" x="2" y="4" width="8" rx="1.5" fill="#22c55e" opacity="0.8"/>
+              <rect x="3" y="-3" width="6" height="3" rx="1" fill="rgba(255,255,255,0.2)"/>
+            </g>
+
+            <!-- Ambient particles -->
+            <circle cx="100" cy="140" r="1" fill="rgba(34,197,94,0.3)">
+              <animate attributeName="cy" values="140;120;140" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="300" cy="160" r="1.5" fill="rgba(34,197,94,0.2)">
+              <animate attributeName="cy" values="160;135;160" dur="5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.2;0.5;0.2" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="460" cy="100" r="1" fill="rgba(34,197,94,0.3)">
+              <animate attributeName="cy" values="100;80;100" dur="3.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scrollen</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== VORTEILE ===== -->
+    <section class="wb-vorteile" id="vorteile" aria-labelledby="wb-vorteile-heading">
+      <div class="container">
+        <div class="section-header center fade-up">
+          <p class="section-label">Warum Wallbox?</p>
+          <h2 id="wb-vorteile-heading" class="section-title">Ihre Vorteile</h2>
+          <p class="section-desc">Mit einer eigenen Wallbox laden Sie Ihr E-Auto bequem, günstig und klimafreundlich zu Hause.</p>
+        </div>
+
+        <div class="wb-vorteile-grid">
+          <article class="wb-vorteil-card fade-up">
+            <div class="wb-vorteil-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Bis zu 80% günstiger laden</h3>
+            <p>Im Vergleich zur öffentlichen Ladestation sparen Sie mit eigenem Solarstrom bis zu 80% der Ladekosten.</p>
+          </article>
+
+          <article class="wb-vorteil-card fade-up">
+            <div class="wb-vorteil-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Intelligentes Lademanagement</h3>
+            <p>PV-Überschussladen: Ihre Wallbox lädt automatisch, wenn die Sonne scheint und Strom übrig ist.</p>
+          </article>
+
+          <article class="wb-vorteil-card fade-up">
+            <div class="wb-vorteil-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/><line x1="7" y1="10" x2="7" y2="14"/><line x1="11" y1="10" x2="11" y2="14"/></svg>
+            </div>
+            <h3>Kompatibel mit allen E-Autos</h3>
+            <p>Typ 2 Stecker, 11 oder 22 kW Ladeleistung — passend für jedes Elektrofahrzeug auf dem Markt.</p>
+          </article>
+
+          <article class="wb-vorteil-card fade-up">
+            <div class="wb-vorteil-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Förderfähig</h3>
+            <p>Profitieren Sie von möglichen Förderungen durch KfW, Kommunen und Energieversorger. Wir beraten Sie dazu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WALLBOX-LÖSUNGEN ===== -->
+    <section class="wb-produkte" id="loesungen" aria-labelledby="wb-produkte-heading">
+      <div class="container">
+        <div class="section-header center fade-up">
+          <p class="section-label">Unsere Produkte</p>
+          <h2 id="wb-produkte-heading" class="section-title">Unsere Wallbox-Lösungen</h2>
+          <p class="section-desc">Für jeden Bedarf die passende Ladelösung — professionell installiert und angemeldet.</p>
+        </div>
+
+        <div class="wb-produkte-grid">
+          <article class="wb-produkt-card fade-up">
+            <span class="wb-produkt-badge">Standard</span>
+            <h3>11 kW Wallbox</h3>
+            <p class="wb-produkt-sub">Für die meisten E-Autos ausreichend — über Nacht voll geladen.</p>
+            <ul class="wb-produkt-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                11 kW Ladeleistung (3-phasig)
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Typ 2 Ladestecker
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                PV-Überschussladen möglich
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                WLAN / App-Steuerung
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Installation & Anmeldung inklusive
+              </li>
+            </ul>
+            <a href="index.html#kontakt" class="btn-primary">Angebot anfragen</a>
+          </article>
+
+          <article class="wb-produkt-card fade-up">
+            <span class="wb-produkt-badge">Schnellladen</span>
+            <h3>22 kW Wallbox</h3>
+            <p class="wb-produkt-sub">Schnellladen für zu Hause — ideal bei hohem Ladebedarf.</p>
+            <ul class="wb-produkt-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                22 kW Ladeleistung (3-phasig)
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Typ 2 Ladestecker
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                PV-Überschussladen + Lastmanagement
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                WLAN / App-Steuerung + RFID
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Genehmigung durch Netzbetreiber inkl.
+              </li>
+            </ul>
+            <a href="index.html#kontakt" class="btn-primary">Angebot anfragen</a>
+          </article>
+        </div>
+
+        <div class="wb-extra-features fade-up">
+          <div class="wb-extra-feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            App-Steuerung
+          </div>
+          <div class="wb-extra-feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            RFID-Zugangskontrolle
+          </div>
+          <div class="wb-extra-feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Dynamisches Lastmanagement
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERFEKT MIT SOLARANLAGE ===== -->
+    <section class="wb-kombi" id="solar-kombi" aria-labelledby="wb-kombi-heading">
+      <div class="container">
+        <div class="section-header center fade-up">
+          <p class="section-label">Synergie</p>
+          <h2 id="wb-kombi-heading" class="section-title">Perfekt mit Solaranlage</h2>
+          <p class="section-desc">Wallbox und Photovoltaik ergänzen sich ideal — für maximale Ersparnis und Unabhängigkeit.</p>
+        </div>
+
+        <div class="wb-kombi-grid">
+          <article class="wb-kombi-card fade-up">
+            <div class="wb-kombi-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h3>PV + Wallbox</h3>
+            <p>Solarstrom vom eigenen Dach fließt direkt ins E-Auto. Kein teurer Netzstrom, keine Emissionen — maximale Unabhängigkeit.</p>
+          </article>
+
+          <article class="wb-kombi-card fade-up">
+            <div class="wb-kombi-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/><line x1="6" y1="10" x2="6" y2="14"/><line x1="10" y1="10" x2="10" y2="14"/><line x1="14" y1="10" x2="14" y2="14"/></svg>
+            </div>
+            <h3>Speicher + Wallbox</h3>
+            <p>Mit Batteriespeicher laden Sie auch abends und nachts mit gespeichertem Sonnenstrom — rund um die Uhr grüne Energie.</p>
+          </article>
+
+          <article class="wb-kombi-card fade-up">
+            <div class="wb-kombi-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+            </div>
+            <h3>Schnellere Amortisation</h3>
+            <p>Jeder Kilometer mit Sonnenstrom spart bares Geld. Die Kombination aus PV und E-Auto beschleunigt die Amortisation Ihrer Investition.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="wb-cta" aria-labelledby="wb-cta-heading">
+      <div class="container">
+        <h2 id="wb-cta-heading">E-Mobilität mit Sonnenstrom?</h2>
+        <p>Lassen Sie sich unverbindlich beraten — wir finden die passende Wallbox-Lösung für Ihr Zuhause.</p>
+        <a href="index.html#kontakt" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Jetzt Kontakt aufnehmen
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color:var(--white);margin-bottom:12px;">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="8" fill="#f59e0b"/>
+              <line x1="16" y1="2" x2="16" y2="7" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="16" y1="25" x2="16" y2="30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="2" y1="16" x2="7" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="25" y1="16" x2="30" y2="16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            Solaranlage Berger
+          </div>
+          <p>Ihr regionaler Meisterbetrieb für Photovoltaik in Unterfranken. Seit über 25 Jahren.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Leistungen</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#leistungen">Dachanlagen</a></li>
+            <li><a href="index.html#leistungen">Batteriespeicher</a></li>
+            <li><a href="wallbox.html">Wallbox</a></li>
+            <li><a href="index.html#preise">Preise & Pakete</a></li>
+            <li><a href="index.html#rechner">Solar-Rechner</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Information</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#ueber-uns">Über uns</a></li>
+            <li><a href="index.html#prozess">So funktioniert's</a></li>
+            <li><a href="index.html#referenzen">Kundenstimmen</a></li>
+            <li><a href="index.html#faq">Häufige Fragen</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+4960226519130">06022 651 913 0</a></li>
+            <li><a href="mailto:info@solaranlage-berger.de">info@solaranlage-berger.de</a></li>
+            <li>Wilhelmstr. 10</li>
+            <li>63450 Hanau</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Solaranlage Berger (LB+ GmbH) — Alle Rechte vorbehalten</span>
+        <div class="footer-bottom-links">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Scroll animations
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+
+  <!-- ===== COOKIE CONSENT BANNER ===== -->
+  <div class="consent-banner" id="consentBanner" role="dialog" aria-modal="false" aria-labelledby="consent-title" hidden>
+    <div class="consent-inner">
+      <div class="consent-text">
+        <h3 id="consent-title">🍪 Datenschutz ist uns wichtig</h3>
+        <p>Wir verwenden Cookies und externe Dienste (z.B. Google Fonts), um Ihnen die bestmögliche Erfahrung zu bieten. Sie entscheiden, was geladen wird. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+      </div>
+      <div class="consent-buttons">
+        <button class="consent-btn settings" type="button" onclick="ConsentManager.openSettings()">Einstellungen</button>
+        <button class="consent-btn reject" type="button" onclick="ConsentManager.acceptNecessary()">Nur notwendige</button>
+        <button class="consent-btn accept" type="button" onclick="ConsentManager.acceptAll()">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== COOKIE SETTINGS MODAL ===== -->
+  <div class="consent-modal" id="consentModal" role="dialog" aria-modal="true" aria-labelledby="consent-modal-title" hidden>
+    <div class="consent-modal-backdrop" onclick="ConsentManager.closeSettings()"></div>
+    <div class="consent-modal-box">
+      <div class="consent-modal-header">
+        <h3 id="consent-modal-title">Datenschutz-Einstellungen</h3>
+        <button class="consent-modal-close" type="button" onclick="ConsentManager.closeSettings()" aria-label="Schließen">✕</button>
+      </div>
+      <div class="consent-modal-body">
+        <p class="consent-modal-intro">Wählen Sie, welche Dienste auf dieser Website geladen werden dürfen. Sie können diese Einstellung jederzeit über den Link "Cookie-Einstellungen" im Footer ändern.</p>
+        <div class="consent-category">
+          <div class="consent-category-head">
+            <div><strong>Notwendig</strong><span class="consent-required">Immer aktiv</span></div>
+            <label class="consent-toggle"><input type="checkbox" checked disabled><span class="consent-slider"></span></label>
+          </div>
+          <p>Technisch erforderliche Cookies für die Grundfunktionen der Website. Ohne diese funktioniert die Website nicht korrekt.</p>
+        </div>
+        <div class="consent-category">
+          <div class="consent-category-head">
+            <div><strong>Externe Dienste</strong><span class="consent-optional">Optional</span></div>
+            <label class="consent-toggle"><input type="checkbox" id="consent-external"><span class="consent-slider"></span></label>
+          </div>
+          <p>Lädt externe Inhalte: <strong>Google Fonts</strong> (für die Schriftart) und unseren <strong>Solar-Konfigurator</strong> (Reonic). Bei Aktivierung wird Ihre IP-Adresse an die Anbieter übertragen.</p>
+        </div>
+      </div>
+      <div class="consent-modal-footer">
+        <button class="consent-btn reject" type="button" onclick="ConsentManager.acceptNecessary()">Nur notwendige</button>
+        <button class="consent-btn accept" type="button" onclick="ConsentManager.saveSelection()">Auswahl speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/consent.js" defer></script>
+
+</body>
+</html>
