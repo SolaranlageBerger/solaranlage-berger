@@ -10,15 +10,22 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
-# Caching für statische Assets
+# HTML: nie cachen, immer aktuelle Version laden
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# CSS: kurzer Cache mit Revalidierung, damit Updates schnell sichtbar werden
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
+# JS: kurzer Cache mit Revalidierung
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 # Netlify Forms ist automatisch aktiviert via data-netlify="true" in den Formularen
