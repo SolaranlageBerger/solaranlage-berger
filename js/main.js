@@ -40,6 +40,7 @@ const counterObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const el = entry.target;
       const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : '+';
       const duration = 1500;
       const startTime = performance.now();
 
@@ -47,7 +48,7 @@ const counterObserver = new IntersectionObserver((entries) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target) + '+';
+        el.textContent = Math.round(eased * target) + suffix;
         if (progress < 1) requestAnimationFrame(update);
       }
       requestAnimationFrame(update);
